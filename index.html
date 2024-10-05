@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,148 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <!-- header section -->
+    <header class="w-11/12 mx-auto">
+       <!-- navbar section -->
+        <nav class="py-4 flex flex-row justify-between items-center">
+            <div class="flex items-center gap-1">
+                <img src="./images/logo.webp" alt="logo">
+                <h3 class="text-2xl font-bold">PetAdopt</h3>
+            </div>
+            <div class="hidden sm:block">
+                <ul class="flex flex-row ">
+                    <li class="px-4 text-lg font-semibold text-gray-600">Home</li>
+                    <li class="px-4 text-lg font-semibold text-gray-600">Shop</li>
+                    <li class="px-4 text-lg font-semibold text-gray-600">Contact</li>
+                </ul>
+            </div>
+            <div class="flex justify-center items-center ">
+                <div class="cursor-pointer p-2 rounded-full border border-lime-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                </div>
+                <div id="menu" class="sm:hidden ml-2 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </div>
+                <div id="link" class="absolute z-10 rounded-lg top-20 flex justify-center inset-4  bg-gray-800 backdrop-blur-xl sm:hidden">
+                    <ul class="flex flex-col justify-center items-center gap-2">
+                        <li class="px-4 text-lg font-semibold text-white cursor-pointer">Home</li>
+                        <li class="px-4 text-lg font-semibold text-white cursor-pointer">Shop</li>
+                        <li class="px-4 text-lg font-semibold text-white cursor-pointer">Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- banner section -->
+        <div class="my-14 flex flex-col justify-center items-center gap-2">
+            <div class="flex flex-col justify-center items-center text-center gap-3">
+                <h5 class="text-gray-600 font-semibold text-sm sm:text-base">Paws Meet Home ❤️‍🔥</h5>
+                <h1 class="text-xl sm:text-4xl font-bold">Find Your Perfect Pet Companion Today</h1>
+                <p class="text-sm sm:text-base">A pet adoption website helps connect animals in shelters with potential adopters, offering detailed pet profiles, search filters, and adoption resources. It promotes responsible pet ownership and provides guidance throughout the adoption process.</p>
+                <button class="bg-indigo-800 px-6 py-2 rounded-lg text-white text-sm">View More</button>
+            </div>
+            <div class="max-w-[600px]">
+                <img class="w-full" src="./images/pet.webp" alt="banner image">
+            </div>
+        </div>
+    </header>
+    <!-- main section -->
+    <main class="w-11/12 mx-auto my-6">
+        <section class="flex flex-col justify-center">
+            <div class="text-center space-y-2">
+                <h1 class="text-xl sm:text-3xl font-semibold">Adopt Your Love</h1>
+                <p class="text-sm sm:text-base">Adopting a pet provides them with a loving home, a second chance, and brings joy, companionship, and unconditional love.</p>
+            </div>
+            <!-- category -->
+            <div id="categoryContainer" class="flex justify-between items-center gap-4 my-6">
+              
+                <!-- <div class="border border-lime-300 rounded-lg px-5 py-2 flex gap-1">
+                    <img src="" alt="image of category">
+                    <span>Cats</span>
+                </div>  -->
+
+            </div>
+        </section>
+        <!-- deal section -->
+        <section class="my-2 flex flex-col">
+            <div class="flex justify-between items-center my-4">
+                <h3 class="text-lg font-semibold">Best Deal For You</h3>
+                <button class="text-sm px-4 py-1 border rounded-lg bg-indigo-700 text-white">Sort by Price</button>
+            </div>
+            <div class="flex gap-4 ">
+                 
+
+                <div id="pets" class="basis-[70%]  grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border p-6 w-full rounded-lg">
+    
+                    <!-- <div class="flex flex-col gap-2 border p-3 rounded-lg ">
+                        <div class="mb-2 rounded-lg">
+                            <img class="w-full" src="" alt="nai">
+                        </div>
+                        <div class="text-left space-y-1">
+                            <h3>Tuki</h3>
+                            <p class="text-sm"><span></span>Breed</p>
+                            <p class="text-sm"><span></span>Birth</p>
+                            <p class="text-sm"><span></span>Gender</p>
+                            <p class="text-sm"><span></span>Price</p>
+                        </div>
+                             
+                        <div class="flex justify-between items-center gap-3 border-t pt-2">
+                            <button class="px-3 py-1 border rounded ">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                    <path d="M1 8.25a1.25 1.25 0 1 1 2.5 0v7.5a1.25 1.25 0 1 1-2.5 0v-7.5ZM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0 1 14 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 0 1-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 0 1-1.341-.317l-2.734-1.366A3 3 0 0 0 6.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 0 1 2.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388Z" />
+                                    </svg>               
+                            </button>
+                            <button class="px-3 py-1 border rounded text-blue-500">Adopt</button>
+                            <button class="px-3 py-1 border rounded text-blue-500">Details</button>
+                        </div>
+                    </div>  -->
+    
+                </div>
+                
+                <div id="likedPets" class="basis-[25%] rounded-lg border grid gris-cols-4">
+        
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="w-full bg-black text-white p-16 flex flex-col gap-16 sm:flex-row justify-between ">
+        <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-1">
+                <img src="./images/logo.webp" alt="logo">
+                <h3 class="text-2xl font-bold">PetAdopt</h3>
+            </div>
+            <div class="space-y-1">
+                <p class="text-sm">Location: Dhaka</p>
+                <p class="text-sm">Phone: +8801234535</p>
+                <p class="text-sm">Email: info@adaption@gmail.com</p>
+            </div>
+            <div class="flex flex-row gap-4">
+                <img class="w-6 cursor-pointer" src="./images/facebook (1).png" alt="fb">
+                <img class="w-6 cursor-pointer bg-white" src="./images/twitter (1).png" alt="twitter">
+                <img class="w-6 cursor-pointer" src="./images/youtube.png" alt="yt">
+                <img class="w-6 cursor-pointer" src="./images/instagram (1).png" alt="insta">
+            </div>
+        </div>
+        <div class="space-y-3">
+            <p class="text-lg font-semibold">Useful Links</p>
+            <ul class="space-y-2 text-gray-600">
+                <li class="cursor-pointer">Home</li>
+                <li class="cursor-pointer">About Us</li>
+                <li class="cursor-pointer">Animals</li>
+                <li class="cursor-pointer">Contact</li>
+            </ul>
+        </div>
+        <div class="flex flex-col gap-2 text-left">
+            <h2 class="text-lg font-semibold">Drop a message</h2>
+            <input class="p-2 rounded" type="text" placeholder="Enter Your Email">
+            <button class="bg-blue-600 py-1 rounded-lg">Subscribe</button>
+        </div>
+    </footer>
     
     <script src="./js/main.js"></script>
 </body>
