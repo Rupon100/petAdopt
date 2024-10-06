@@ -50,7 +50,7 @@
                 <h5 class="text-gray-600 font-semibold text-sm sm:text-base">Paws Meet Home ❤️‍🔥</h5>
                 <h1 class="text-xl sm:text-4xl font-bold">Find Your Perfect Pet Companion Today</h1>
                 <p class="text-sm sm:text-base">A pet adoption website helps connect animals in shelters with potential adopters, offering detailed pet profiles, search filters, and adoption resources. It promotes responsible pet ownership and provides guidance throughout the adoption process.</p>
-                <button class="bg-indigo-800 px-6 py-2 rounded-lg text-white text-sm">View More</button>
+                <button class="bg-indigo-800 px-6 py-2 rounded-lg text-white text-sm"><a href="#main">View More</a></button>
             </div>
             <div class="max-w-[600px]">
                 <img class="w-full" src="./images/pet.webp" alt="banner image">
@@ -58,7 +58,7 @@
         </div>
     </header>
     <!-- main section -->
-    <main class="w-11/12 mx-auto my-6">
+    <main id="main" class="w-11/12 mx-auto my-6">
         <section class="flex flex-col justify-center">
             <div class="text-center space-y-2">
                 <h1 class="text-xl sm:text-3xl font-semibold">Adopt Your Love</h1>
@@ -80,10 +80,23 @@
                 <h3 class="text-lg font-semibold">Best Deal For You</h3>
                 <button class="text-sm px-4 py-1 border rounded-lg bg-indigo-700 text-white">Sort by Price</button>
             </div>
-            <div class="flex gap-4 justify-between">
-                 
+            <div class="flex gap-4  justify-between">
 
-                <div id="pets" class="basis-[80%]  grid  gap-3 place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border p-4 w-full rounded-lg">
+                <!-- modal for details   -->
+                <dialog id="modal" class="modal modal-bottom sm:modal-middle">  
+                    <div class="modal-box">
+                        <div id="modal-content">
+  
+                        </div>
+                        <div class="modal-action w-full">
+                            <form method="dialog" class="w-full">
+                              <button class="px-6 py-2 rounded bg-blue-200 border border-blue-400 font-semibold text-blue-600 w-full">Close</button>
+                            </form>
+                        </div>
+                    </div>  
+                </dialog>
+
+                <div id="pets" class="basis-[80%]  grid  gap-3 place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3  w-full rounded-lg">
     
                     <!-- <div class="flex flex-col gap-2 border p-3 rounded-lg ">
                         <div class="mb-2 rounded-lg">
@@ -110,7 +123,7 @@
     
                 </div>
                 
-                <div id="likedPets" class="basis-[20%] rounded-lg border grid gris-cols-4">
+                <div id="likedPets" class="basis-[20%] rounded-lg border grid grid-cols-1 sm:grid-cols-2 content-start">
         
                 </div>
             </div>
@@ -118,7 +131,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="w-full bg-black text-white p-16 flex flex-col gap-16 sm:flex-row justify-between ">
+    <footer class="w-full bg-black text-white p-16 flex flex-col gap-16 sm:flex-row justify-between">
         <div class="flex flex-col gap-4">
             <div class="flex items-center gap-1">
                 <img src="./images/logo.webp" alt="logo">
