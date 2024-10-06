@@ -63,17 +63,16 @@ const displayAllPets = (pets) => {
                             <path d="M1 8.25a1.25 1.25 0 1 1 2.5 0v7.5a1.25 1.25 0 1 1-2.5 0v-7.5ZM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0 1 14 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 0 1-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 0 1-1.341-.317l-2.734-1.366A3 3 0 0 0 6.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 0 1 2.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388Z" />
                             </svg>               
                     </button>
-                    <button class="px-3 py-1 border rounded text-blue-500">Adopt</button>
 
-                    <button onclick="modal('${pet.petId}')" class="px-3 py-1 border rounded text-blue-500" >Details</button>
+                    <button onclick="adoptPet()" class="px-3 py-1 border rounded text-blue-500 hover:bg-blue-500 hover:text-white transition-colors">Adopt</button>
+
+                    <button onclick="modal('${pet.petId}')" class="px-3 py-1 border rounded text-blue-500 hover:bg-blue-500 hover:text-white transition-colors" >Details</button>
                 </div>
             </div> 
 
         `;
         petsContainer.append(div);
 
-        // const detailBtn = document.getElementById('details-btn');
-        // detailBtn.addEventListener('click', ()=> modal(pet));
     });
 }
 
@@ -106,7 +105,7 @@ const saveLikedPets = (like) => {
     const div = document.createElement('div');
     div.classList.add('p-2', 'h-full','flex', 'justify-start', 'items-start');
     div.innerHTML = `
-        <div>
+        <div class="p-1 border rounded">
             <img class="rounded w-full object-cover" src=${like} />
         </div>
     `;
@@ -115,7 +114,7 @@ const saveLikedPets = (like) => {
 }
  
 
-//show modal
+//show modal for details
 const modal = (detailId) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pet/${detailId}`)
     .then((res) => res.json())
@@ -168,6 +167,27 @@ const modal = (detailId) => {
     });
 }
 
+//adopt button functionality
+const adoptPet = () => {
+    const modal = document.getElementById('modalAdopt');
+    const countDown = document.getElementById('count-down');
+
+    modal.showModal();
+
+    let maxTime = 3;
+    countDown.innerText = maxTime;
+    const countDownTimer = setInterval(() => {
+
+        maxTime--;
+        if(maxTime > 0){
+            countDown.innerText = maxTime;
+        }else{
+            clearInterval(countDownTimer);
+            modal.close();
+        }
+
+    }, 1000);
+}
 
 
 loadCategory();
