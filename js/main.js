@@ -10,17 +10,32 @@ menu.addEventListener('click', () =>{
 
 //load all pets
 const loadAllPets = () => {
-    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+    fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
     .then(res => res.json())
-    .then(data =>  displayAllPets(data.pets))
+    .then(data => {
+        displayAllPets(data.pets)
+    })
 }
-
 
 //display all pets
 const displayAllPets = (pets) => {
-    
     const petsContainer = document.getElementById('pets');
     petsContainer.innerHTML = "";
+
+    if(pets.length === 0){
+       petsContainer.classList.remove('grid');
+        petsContainer.innerHTML = `
+           <div class="min-h-[600px] w-full p-6 bg-gray-200 rounded-lg flex flex-col justify-center items-center gap-4 text-center">
+              <img src="./images/error.webp" alt="no data"/>
+              <h1 class="text-2xl font-semibold">No Information Available!</h1>
+              <p>Sorry, we currently don't have any data available about this category. Please check back later for updates.</p>
+           </div>
+        `;
+        return;
+    } else{
+        petsContainer.classList.add('grid');
+    }
+
     pets.forEach(pet => {
         const div = document.createElement('div');
         div.innerHTML = `
@@ -77,27 +92,50 @@ const displayAllPets = (pets) => {
 }
 
 //load all category
-const loadCategory = () => {
-    fetch('https://openapi.programming-hero.com/api/peddy/categories')
+const loadCategory = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
     .then(res => res.json())
-    .then(data => displayCategory(data.categories))
+    .then(data => {
+        //console.log(data)
+        displayCategory(data.categories)
+    })
+    console.log(id)
 }
+
+//show category wise data
+const loadCategoryItems = (CateName) => {
+    //alert(CateName);
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${CateName}`)
+    .then(res => res.json())
+    .then(data => {
+        displayAllPets(data.data)
+        console.log(data.data)
+    })
+}
+
 //display all category
 const displayCategory = (category) => {
+
     const cateContainer = document.getElementById('categoryContainer');
-    category.forEach(cate => {
+
+    category.forEach(cate => {    
         const div = document.createElement('div');
+        // console.log(cate.category)
+       
         div.innerHTML = `
 
-           <div class="cursor-pointer border border-lime-300 rounded-lg px-4 sm:px-8 py-2 flex justify-center items-center gap-1 sm:gap-2">
+           <button onclick="loadCategoryItems('${cate.category}')" class="cursor-pointer border border-lime-300 rounded-lg px-4 sm:px-8 py-2 flex justify-center items-center gap-1 sm:gap-2 hover:rounded-xl hover:bg-blue-200 transition-colors">
                 <img class="w-[20px] sm:w-full" src=${cate.category_icon} alt="image of category">
                 <span class="text-base sm:text-lg font-semibold">${cate.category}</span>
-            </div> 
+            </button> 
 
         `;
         cateContainer.append(div);
     })
 }
+
+
+ 
 
 //liked pets
 const saveLikedPets = (like) => {
@@ -189,6 +227,7 @@ const adoptPet = () => {
     }, 1000);
 }
 
+ 
 
 loadCategory();
 loadAllPets();
