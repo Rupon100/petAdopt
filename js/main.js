@@ -26,7 +26,7 @@ const displayAllPets = (pets) => {
         div.innerHTML = `
 
             <div class="flex flex-col gap-2 border p-2 rounded-lg">
-                <div class="mb-2 rounded-lg">
+                <div class="mb-2 rounded-lg w-[200px] sm:max-w-[325px] flex justify-center items-center mx-auto">
                     <img class="w-full rounded-lg" src=${pet.image} alt="nai">
                 </div>
                 <div class="text-left space-y-1">
@@ -89,9 +89,9 @@ const displayCategory = (category) => {
         const div = document.createElement('div');
         div.innerHTML = `
 
-           <div class="cursor-pointer border border-lime-300 rounded-lg px-8 py-2 flex justify-center items-center gap-2">
-                <img src=${cate.category_icon} alt="image of category">
-                <span class="text-lg font-semibold">${cate.category}</span>
+           <div class="cursor-pointer border border-lime-300 rounded-lg px-4 sm:px-8 py-2 flex justify-center items-center gap-1 sm:gap-2">
+                <img class="w-[20px] sm:w-full" src=${cate.category_icon} alt="image of category">
+                <span class="text-base sm:text-lg font-semibold">${cate.category}</span>
             </div> 
 
         `;
