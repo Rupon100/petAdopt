@@ -36,6 +36,8 @@ const displayAllPets = (pets) => {
         petsContainer.classList.add('grid');
     }
 
+   
+   
     pets.forEach(pet => {
         const div = document.createElement('div');
         div.innerHTML = `
@@ -89,6 +91,15 @@ const displayAllPets = (pets) => {
         petsContainer.append(div);
 
     });
+
+
+    document.getElementById('sort').addEventListener('click', ()=> {
+        const sortPets = pets.sort((a,b) => b.price - a.price);
+        displayAllPets(sortPets);
+    })
+     
+
+   
 }
 
 //load all category
@@ -104,7 +115,6 @@ const loadCategory = (id) => {
 
 //show category wise data
 const loadCategoryItems = (CateName) => {
-    //alert(CateName);
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${CateName}`)
     .then(res => res.json())
     .then(data => {
@@ -124,7 +134,7 @@ const displayCategory = (category) => {
        
         div.innerHTML = `
 
-           <button onclick="loadCategoryItems('${cate.category}')" class="cursor-pointer border border-lime-300 rounded-lg px-4 sm:px-8 py-2 flex justify-center items-center gap-1 sm:gap-2 hover:rounded-xl hover:bg-blue-200 transition-colors">
+           <button onclick="loadCategoryItems('${cate.category}')" class="cmn-btn cursor-pointer border border-lime-300 rounded-lg px-4  py-2 flex justify-center items-center gap-1 sm:gap-2 hover:rounded-xl hover:bg-blue-200 transition-colors sm:px-8">
                 <img class="w-[20px] sm:w-full" src=${cate.category_icon} alt="image of category">
                 <span class="text-base sm:text-lg font-semibold">${cate.category}</span>
             </button> 
@@ -134,8 +144,6 @@ const displayCategory = (category) => {
     })
 }
 
-
- 
 
 //liked pets
 const saveLikedPets = (like) => {
