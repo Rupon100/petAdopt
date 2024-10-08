@@ -10,17 +10,17 @@
 </head>
 <body>
     <!-- header section -->
-    <header class="w-11/12 mx-auto">
+    <header id="home" class="w-11/12 mx-auto">
        <!-- navbar section -->
-        <nav class="py-4 flex flex-row justify-between items-center">
+        <nav class="py-6 flex flex-row justify-between items-center">
             <div class="flex items-center gap-1">
                 <img src="./images/logo.webp" alt="logo">
                 <h3 class="text-2xl font-bold">PetAdopt</h3>
             </div>
             <div class="hidden sm:block">
                 <ul class="flex flex-row ">
-                    <li class="px-4 text-lg font-semibold text-gray-600">Home</li>
-                    <li class="px-4 text-lg font-semibold text-gray-600">Shop</li>
+                    <li class="px-4 text-lg font-semibold text-gray-600"><a href="#home">Home</a></li>
+                    <li class="px-4 text-lg font-semibold text-gray-600"><a href="#main">Shop</a></li>
                     <li class="px-4 text-lg font-semibold text-gray-600">Contact</li>
                 </ul>
             </div>
@@ -37,15 +37,15 @@
                 </div>
                 <div id="link" class="absolute z-10 rounded-lg top-20 flex justify-center inset-4  bg-gray-800 backdrop-blur-xl sm:hidden">
                     <ul class="flex flex-col justify-center items-center gap-2">
-                        <li class="px-4 text-lg font-semibold text-white cursor-pointer">Home</li>
-                        <li class="px-4 text-lg font-semibold text-white cursor-pointer">Shop</li>
-                        <li class="px-4 text-lg font-semibold text-white cursor-pointer">Contact</li>
+                        <li class="px-4 text-lg font-semibold text-white cursor-pointer"><a href="#home">Home</a></li>
+                        <li class="px-4 text-lg font-semibold text-white cursor-pointer"><a href="#main">Shop</a></li>
+                        <li class="px-4 text-lg font-semibold text-white cursor-pointer"><a href="#">Shop</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- banner section -->
-        <div class="my-14 flex flex-col justify-center items-center gap-2">
+        <div class="my-20 flex flex-col justify-center items-center gap-2">
             <div class="flex flex-col justify-center items-center text-center gap-3">
                 <h5 class="text-gray-600 font-semibold text-sm sm:text-base">Paws Meet Home ❤️‍🔥</h5>
                 <h1 class="text-xl sm:text-4xl font-bold">Find Your Perfect Pet Companion Today</h1>
@@ -57,8 +57,9 @@
             </div>
         </div>
     </header>
+    
     <!-- main section -->
-    <main id="main" class="w-11/12 mx-auto my-6">
+    <main id="main" class="w-11/12 mx-auto my-8">
         <section class="flex flex-col justify-center">
             <div class="text-center space-y-2">
                 <h1 class="text-xl sm:text-3xl font-semibold">Adopt Your Love</h1>
@@ -71,17 +72,18 @@
         </section>
 
         <!-- deal section -->
-        <section class="my-2 flex flex-col">
+        <section  class="my-2 flex flex-col">
             <div class="flex justify-between items-center my-4">
                 <h3 class="text-lg font-semibold">Best Deal For You</h3>
                 <button id="sort" class="text-sm px-4 py-2 border rounded-lg bg-indigo-700 text-white">Sort by Price</button>
             </div>
+               <!--deal section  -->
             <div class="flex gap-4  justify-between">
                 <!-- modal for details   -->
                 <dialog id="modal" class="modal modal-bottom sm:modal-middle">  
                     <div class="modal-box">
                         <div id="modal-content">
-  
+    
                         </div>
                         <div class="modal-action w-full">
                             <form method="dialog" class="w-full">
@@ -90,11 +92,12 @@
                         </div>
                     </div>  
                 </dialog>
-
+    
+                <!-- pets container -->
                 <div id="pets" class="basis-[80%]  grid  gap-3 place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3  w-full rounded-lg">
     
                 </div>
-
+    
                 <dialog id="modalAdopt" class="modal modal-bottom sm:modal-middle">  
                     <div class="modal-box">
                         <div id="modal-content flex flex-col justify-center items-center gap-6">
@@ -109,8 +112,8 @@
                         </div>
                     </div>  
                 </dialog>
-
-                
+       
+                <!-- liked pets -->
                 <div id="likedPets" class="basis-[20%] rounded-lg border grid grid-cols-1 md:grid-cols-2 content-start">
         
                 </div>
