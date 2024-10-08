@@ -6,8 +6,6 @@ menu.addEventListener('click', () =>{
 })
 
 
-
-
 //load all pets
 const loadAllPets = () => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
@@ -19,7 +17,6 @@ const loadAllPets = () => {
 
 //liked pets
 const saveLikedPets = (like) => {
-
     const likedContainer = document.getElementById('likedPets');
 
     const div = document.createElement('div');
@@ -30,15 +27,13 @@ const saveLikedPets = (like) => {
         </div>
     `;
     likedContainer.append(div);
-
 }
 
 
 //display all pets
 const displayAllPets = (pets) => {
     const petsContainer = document.getElementById('pets');
-    // const mainContent = document.getElementById('mainContent');
-
+    
     petsContainer.classList.remove('grid');
     petsContainer.innerHTML = `
        <div class="w-[100%] h-[300px] flex justify-center items-center">
@@ -66,9 +61,7 @@ const displayAllPets = (pets) => {
      
          pets.forEach(pet => {
              const div = document.createElement('div');
-              
              div.innerHTML = `
-     
                  <div class="flex flex-col gap-2 border p-2 rounded-lg">
                      <div class="mb-2 rounded-lg w-[220px] sm:max-w-full  flex justify-center items-center mx-auto">
                         <div>
@@ -115,10 +108,8 @@ const displayAllPets = (pets) => {
                          <button onclick="modal('${pet.petId}')" class="px-3 py-1 border rounded text-blue-500 hover:bg-blue-500 hover:text-white transition-colors">Details</button>
                      </div>
                  </div> 
-     
              `;
              petsContainer.append(div);
-     
          });
     },2000)
  
@@ -126,7 +117,6 @@ const displayAllPets = (pets) => {
         const sortPets = pets.sort((a,b) => b.price - a.price);
         displayAllPets(sortPets);
     })
- 
 }
 
 //load all category
@@ -135,8 +125,7 @@ const loadCategory = () => {
     .then(res => res.json())
     .then(data => {
         displayCategory(data.categories)
-    })
-     
+    })  
 }
 
 //show category wise data
@@ -150,19 +139,15 @@ const loadCategoryItems = (CateName) => {
 
 //display all category
 const displayCategory = (category) => {
-
     const cateContainer = document.getElementById('categoryContainer');
 
     category.forEach(cate => {    
         const div = document.createElement('div');
-       
         div.innerHTML = `
-
            <button onclick="loadCategoryItems('${cate.category}')" class="active cursor-pointer border border-lime-300  px-4 rounded-lg py-2 flex justify-center items-center gap-1 sm:gap-2  hover:bg-blue-200 transition-colors sm:px-8">
                 <img class="w-[20px] sm:w-full" src=${cate.category_icon} alt="image of category">
                 <span class="text-base sm:text-lg font-semibold">${cate.category}</span>
             </button> 
-
         `;
         cateContainer.append(div);
 
@@ -174,7 +159,6 @@ const displayCategory = (category) => {
       
             toggleBtn.classList.add('bg-blue-200','rounded-2xl');
         })
-        
     })
 }
 
@@ -256,7 +240,6 @@ const adoptPet = () => {
     }, 1000);
 }
 
- 
 
 loadCategory();
 loadAllPets();
